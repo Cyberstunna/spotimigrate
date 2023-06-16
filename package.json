@@ -2,11 +2,20 @@
   "name": "spotimigrate",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bankai.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Nennii Cally-Ntete",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.3.1",
+    "typescript": "^5.1.3"
+  }
 }
