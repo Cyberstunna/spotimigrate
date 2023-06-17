@@ -2,20 +2,32 @@
   "name": "spotimigrate",
   "version": "1.0.0",
   "description": "",
-  "main": "bankai.js",
+  "main": "bankai.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "start": "node dist/bankai.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/bankai.js\""
   },
   "keywords": [],
   "author": "Nennii Cally-Ntete",
   "license": "MIT",
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.2",
     "dotenv": "^16.3.0",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "puppeteer": "^20.7.2",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.32.0",
+    "sequelize-typescript": "^2.1.5"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/node": "^20.3.1",
+    "@types/validator": "^13.7.17",
+    "concurrently": "^8.2.0",
+    "nodemon": "^2.0.22",
     "typescript": "^5.1.3"
   }
 }
