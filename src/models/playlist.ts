@@ -8,6 +8,9 @@ class Playlist extends Model {
     public id!: number;
     public name!: string;
     public userId!: string;
+    public url!: string;
+    public description!: string;
+    public picUrl!: string;
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
 
@@ -31,6 +34,19 @@ class Playlist extends Model {
           type: DataTypes.UUID,
           allowNull: false,
           field: "user_id"
+        },
+        url: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        description: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        picUrl: {
+          type: DataTypes.STRING,
+          allowNull: true,
+          field: "pic_url"
         },
     },
     {
