@@ -1,6 +1,7 @@
 import express, { Express, Request, Response, RouterOptions } from "express";
 import {validateImportFromApple} from "./validation/validateImportFromApple";
 import { setupImportFromApple } from "./middleware/setupImportFromApple";
+import { isAuthenticated } from "../globalMiddleware/isAuthenticated";
 
 const router = express.Router()
 
@@ -8,11 +9,11 @@ router.post("/",
 // Validate that the url submitted is an apple music playlist url
     validateImportFromApple,
 // Preliminary database entries to setup our user and playlist import
-    setupImportFromApple,
-// Process the playlist url
+    setupImportFromApple
+);
 
-// Send a response
-
+router.post("/complete-import",
+    isAuthenticated
 );
 
 router.get("/test", (req: Request, res: Response)=> {

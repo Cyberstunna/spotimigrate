@@ -39,8 +39,6 @@ async function importPlaylist(id: number): Promise<TrackInfo[]> {
 
         await browser.close()
 
-        console.log(trackList)
-
         Playlist.update(
             {
                 picUrl: picture[2].src?.split(" ")[0],

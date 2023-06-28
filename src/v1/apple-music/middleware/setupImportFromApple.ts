@@ -9,7 +9,7 @@ import { preProcessImportsToSpotify } from "../../../helpers/processImportsToSpo
 
 export const setupImportFromApple = async (req:ExtendedRequest, res:Response, next:NextFunction) => {
     try {
-        const {url}: {url: string} = req.body;
+        const {url}: {url: string} = req.body; 
         const newUser = await User.create();
 
         const playlistToImport = await Playlist.create({
@@ -23,10 +23,9 @@ export const setupImportFromApple = async (req:ExtendedRequest, res:Response, ne
 
         res.json({token})
 
-        preProcessImportsToSpotify(await importPlaylist(playlistToImport.id))
+        await preProcessImportsToSpotify(await importPlaylist(playlistToImport.id), playlistToImport.id)
 
-    } catch (error) {
-        console.log(error)
-        next(new InternalError(`Something Unexpected occurred: ${error}`))
+    } catch (error: any) {
+        next(new InternalError(`Something Unexpected occurred: ${error.message}`))
     }
 }
